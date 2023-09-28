@@ -1,23 +1,59 @@
-# microservice-application-movie-api
-This is an application developed using Springboot to demonstrate understanding of the framework
+# Microservice Application - Movie API
 
-# Summary:
-We want to build an application that serves a catalog of movies that a user has watched and rated. The below is a summary of what you would see for a user.
+This project is an application developed using Spring Boot, aimed at demonstrating an understanding of the framework and showcasing a microservices architecture.
 
-Table 1: User(Phindulo)
+## Summary
 
-\Movie name\ Description \Rating\
-\Toy Story \ movie about... \ 5\
+The goal is to build an application that serves a catalog of movies a user has watched and rated. Below is a summary of what a user would see:
 
-The above should give an indication of what we are trying to achieve.
+| Movie Name | Description         | Rating |
+|------------|---------------------|--------|
+| Toy Story  | A movie about...    | 5      |
 
-# Implimentation
-We are doing this project so that we can learn about microservices. We will be using Java and SpringBoot.
+This summary gives an indication of the application's intended functionality.
 
-# Microservices
-We will have a total of three Microservices that will be standalone SpringBoot Applications. The are listed below as well as their functions.
-*	movie-catalog-service: Main application, it will serve the Rest endpoints \catalog and \catalog\{userId}. \catalog will give the Map of users that currently have their information entered, this will be information local to the service. The Map<k,v> will be such that k is the userId and v is a list of movies. \catalog\{userId} will give all the movies for {userId} in the format {Title, Description, Rating}. The information served by \catalog\{userId} will be fetched from movie-info-service and movie-ratings-service. The core endpoints for this service is mostly just \catalog . Idealy we will have hyper links where you can click on the list of movies for each user and then get the description and rating but meh. Probably add \dashboard
-*	movie-info-service: This service serves the available movies and a movie title and the description. It will have two endpoints \movies and \movies\{movieId}. \movies give a list of all movies available and \movies\{movieId} gives specific movie information.
-*	movie-ratings-service: : This service serves the available ratings for each movie. It will have two endpoints \ratings and \ratings\{movieId}. \ratings give a list of all available movies and their respective ratings and \ratings\{movieId} gives specific movie ratings information.
-Design and Implimentation
-*	We will be using Spring MVC patter and RestTemplate for each Microservice. We will also use Eureka for service discory. And lastly we will also use Beans for out RestTemplates.
+## Implementation
+
+This project focuses on learning about microservices and will utilize Java and Spring Boot for development.
+
+## Microservices
+
+Three standalone microservices will be created using Spring Boot, each serving specific functions:
+
+1. **movie-catalog-service**: The main application, responsible for serving REST endpoints `/catalog` and `/catalog/{userId}`. `/catalog` provides a map of users with their movie information locally. `/catalog/{userId}` provides movies and their details for a specific user, fetching data from `movie-info-service` and `movie-ratings-service`. Key endpoints are `/catalog` and potentially `/dashboard`.
+
+2. **movie-info-service**: Serves available movies and their titles and descriptions. It has two endpoints: `/movies` for listing all available movies and `/movies/{movieId}` for specific movie information.
+
+3. **movie-ratings-service**: Provides movie ratings information. It has endpoints `/ratings` to list all available movies with their respective ratings and `/ratings/{movieId}` to get ratings for a specific movie.
+
+## Design and Implementation
+
+The design and implementation will follow these principles:
+- **Spring MVC Pattern**: Utilizing Spring MVC for structuring the application.
+- **RestTemplate**: Employing RestTemplate for communication between microservices.
+- **Service Discovery with Eureka**: Utilizing Eureka for service discovery within the microservices architecture.
+- **Beans for RestTemplates**: Configuring RestTemplates using Beans for efficient usage.
+
+## Getting Started
+
+1. Clone this repository:
+   ```sh
+   git clone <repository_url>
+   ```
+
+2. Navigate to the project directory:
+   ```sh
+   cd <project_directory>
+   ```
+
+3. Build and run the microservices individually (e.g., `movie-catalog-service`, `movie-info-service`, `movie-ratings-service`).
+
+4. Test the endpoints using tools like Postman or directly through the application.
+
+## Contributing
+
+Contributions are welcome! Feel free to submit issues or open pull requests to enhance the application.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
